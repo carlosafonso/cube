@@ -1,0 +1,17 @@
+{
+    "name": "carlosafonso/cube",
+    "require": {
+        "league/climate": "^3.2"
+    },
+    "authors": [
+        {
+            "name": "Carlos Afonso Pérez",
+            "email": "carlos.afonso.perez@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Afonso\\Cube\\": "src/"
+        }
+    }
+}
