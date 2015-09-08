@@ -7,17 +7,18 @@ $cli = new League\CLImate\CLImate;
 $cube = new Afonso\Cube\Cube;
 $cube->scramble();
 
+$parser = new Afonso\Cube\MoveStringParser;
+
 $validMoves = implode(',', $cube->getValidMoves());
 
 $drawer = new Afonso\Cube\CubeDrawer($cube);
 
 while (! $cube->isSolved()) {
 	$drawer->draw();
-	$input = $cli->input("Move? [{$validMoves}]");
-	$response = $input->prompt();
+	$moves = $cli->input("Move? [{$validMoves}]")->prompt();
 
 	try {
-		$cube->doMove($response);
+		$cube->doMoves($parser->parseString($moves));
 	} catch (RuntimeException $e) {
 		$cli->error($e->getMessage());
 	}

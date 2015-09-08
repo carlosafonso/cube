@@ -15,6 +15,13 @@ class Cube implements CubeInterface
 		return $this->cube;
 	}
 
+	public function doMoves($moves)
+	{
+		foreach ($moves as $move) {
+			$this->doMove($move);
+		}
+	}
+
 	public function doMove($move)
 	{
 		$moves = [
