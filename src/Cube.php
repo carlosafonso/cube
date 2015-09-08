@@ -15,14 +15,18 @@ class Cube implements CubeInterface
 		return $this->cube;
 	}
 
-	public function doMoves($moves)
+	public function move($moves)
 	{
+		if (! is_array($moves)) {
+			$moves = [$moves];
+		}
+
 		foreach ($moves as $move) {
 			$this->doMove($move);
 		}
 	}
 
-	public function doMove($move)
+	protected function doMove($move)
 	{
 		$moves = [
 			'u' => 'up',

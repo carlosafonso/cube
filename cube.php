@@ -18,7 +18,9 @@ while (! $cube->isSolved()) {
 	$moves = $cli->input("Move? [{$validMoves}]")->prompt();
 
 	try {
-		$cube->doMoves($parser->parseString($moves));
+		$cube->move($parser->parseString($moves));
+	} catch (InvalidArgumentException $e) {
+		$cli->error($e->getMessage());
 	} catch (RuntimeException $e) {
 		$cli->error($e->getMessage());
 	}

@@ -3,8 +3,22 @@ namespace Afonso\Cube;
 
 use InvalidArgumentException;
 
+/**
+ * Handles the parsing of strings
+ * representing a sequence of moves.
+ */
 class MoveStringParser
 {
+	/**
+	 * Parses an arbitrary expression
+	 * representing a sequence of moves and
+	 * returns an array with the equivalent
+	 * moves, specified one by one.
+	 *
+	 * @param	string	$moves
+	 * @return	array
+	 * @throws	InvalidArgumentException
+	 */
 	public function parseString($string)
 	{
 		if (! preg_match('/^(?:\d?[a-z])+$/i', $string, $m)) {
